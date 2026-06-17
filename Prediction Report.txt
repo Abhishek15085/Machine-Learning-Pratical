@@ -1,0 +1,116 @@
+Q1: Loan Approval Prediction Report
+Problem Statement
+
+A bank wants to identify applicants likely to default on loan repayments while maintaining healthy customer acquisition and reducing financial risk.
+
+Dataset Type
+Tabular Dataset
+Binary Classification
+Target Variable: Loan_Status (Y/N)
+Data Analysis
+Missing values treated using Mode and Median.
+Duplicate records checked and removed if present.
+Outlier analysis performed on ApplicantIncome, CoapplicantIncome, and LoanAmount.
+Feature Engineering: TotalIncome = ApplicantIncome + CoapplicantIncome.
+Label Encoding applied to categorical features.
+Correlation analysis performed.
+Key Findings
+Credit_History showed the strongest influence on loan approval.
+Income-related variables had moderate impact.
+Gender and Dependents showed very low influence.
+High-income applicants generally requested higher loan amounts.
+Models Evaluated
+Logistic Regression
+Decision Tree
+Random Forest
+Model Performance
+Model	Accuracy
+Logistic Regression	86.18%
+Decision Tree	71.54%
+Random Forest	82.11%
+Tuned Random Forest	85.37%
+Selected Model
+
+Logistic Regression
+
+Reason for Selection
+Highest testing accuracy.
+No significant overfitting.
+Easy to interpret for banking decisions.
+Suitable for loan approval prediction.
+Confusion Matrix Interpretation
+Correct Approvals = 84
+Correct Rejections = 22
+False Approvals = 16
+False Rejections = 1
+Business Insights
+Credit history is the most important factor.
+Income alone is insufficient for approval.
+Most approved applicants had strong credit records.
+Deployment Risks
+Some risky applicants may still be approved.
+Economic conditions may change over time.
+Model requires periodic retraining.
+Final Recommendation
+
+Deploy Logistic Regression as a decision-support system. Give highest importance to Credit_History and perform additional verification for borderline applicants before final approval.
+
+Q2: Chest X-Ray Pneumonia Detection Report
+Problem Statement
+
+A hospital network wants to automatically analyze chest X-ray images and assist doctors in early pneumonia screening.
+
+Dataset Type
+Image Dataset
+Binary Image Classification
+Classes:
+NORMAL
+PNEUMONIA
+Data Analysis
+Dataset organized into train, validation, and test folders.
+Images resized to a common dimension (224×224).
+Pixel normalization applied.
+Corrupted image checking performed.
+Data augmentation used to improve model generalization.
+Traditional missing value and correlation analysis are not applicable.
+Key Findings
+Dataset contains chest X-ray images from pneumonia and normal patients.
+Image preprocessing is essential before training.
+Dataset may contain class imbalance.
+Selected Algorithm
+
+Convolutional Neural Network (CNN)
+
+Reason for Selection
+Specifically designed for image classification.
+Automatically extracts image features.
+Learns disease-related visual patterns effectively.
+Alternative Algorithms Considered
+Random Forest
+SVM
+Logistic Regression
+
+Not selected because they require manual feature extraction and generally perform worse on raw image data.
+
+Performance Evaluation Metrics
+Accuracy
+Precision
+Recall (Most Important)
+F1-Score
+Confusion Matrix
+Why Recall is Important
+
+Missing a pneumonia patient can delay treatment and increase medical risk. Therefore Recall (Sensitivity) is critical.
+
+Deployment Feasibility
+Suitable as a doctor-assistance tool.
+Can help prioritize suspicious cases.
+Can reduce diagnosis workload.
+Should not replace medical experts.
+Deployment Risks
+False negatives may miss infected patients.
+Performance may vary across hospitals and imaging devices.
+Continuous monitoring and retraining are required.
+Final Recommendation
+
+Deploy the CNN-based screening system as a clinical decision-support tool. Use model predictions for preliminary screening while keeping final diagnosis under doctor supervision. This improves efficiency and supports early disease detection.
